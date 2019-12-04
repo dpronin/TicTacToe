@@ -73,12 +73,11 @@ class _TicTacToeState extends State<TicTacToePage> {
 
   Future<void> checkNoMoves() async {
     if (step == 9) {
-      await _showWinner(Icons.people_outline,  "Draw");
+      await _showWinner(Icons.people_outline, "Draw");
       _reload();
     }
-    }
+  }
 
-  // shape x = 1. 0 = -1;
   void _markTile(int position) {
     if (tiles[position] != 0) return;
     setState(() {
