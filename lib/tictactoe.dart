@@ -3,12 +3,12 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class TicTakToePage extends StatefulWidget {
+class TicTacToePage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _TicTacToeState createState() => _TicTacToeState();
 }
 
-class _MyHomePageState extends State<TicTakToePage> {
+class _TicTacToeState extends State<TicTacToePage> {
   var tiles = List<int>.filled(9, 0, growable: false);
   var currentPlayer = 1;
   var step = 0;

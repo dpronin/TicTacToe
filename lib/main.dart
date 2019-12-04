@@ -11,7 +11,7 @@ class Main extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: TicTakToePage(),
+      home: TicTacToePage(),
     );
   }
 }
