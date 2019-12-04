@@ -87,8 +87,6 @@ class _TicTacToeState extends State<TicTacToePage> {
     checkWinner();
     checkNoMoves();
     currentPlayer *= -1;
-    print(tiles);
-    print(currentPlayer);
   }
 
   // shape x = 1. 0 = -1;
