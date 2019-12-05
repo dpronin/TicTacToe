@@ -16,7 +16,7 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(Main());
 
-    // Tap the first tile.
+    // Fill first column.
     await tester.tap(find.byIcon(Icons.fullscreen).at(0));
     await tester.tap(find.byIcon(Icons.fullscreen).at(1));
     await tester.tap(find.byIcon(Icons.fullscreen).at(3));
@@ -31,7 +31,7 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(Main());
 
-    // Tap the first tile.
+    // Do not fill first  row or column or diagonal.
     await tester.tap(find.byIcon(Icons.fullscreen).at(0));
     await tester.tap(find.byIcon(Icons.fullscreen).at(1));
     await tester.tap(find.byIcon(Icons.fullscreen).at(3));
@@ -46,7 +46,7 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(Main());
 
-    // Tap the first tile.
+    // Tap all tiles.
     await tester.tap(find.byIcon(Icons.fullscreen).at(0));
     await tester.tap(find.byIcon(Icons.fullscreen).at(1));
     await tester.tap(find.byIcon(Icons.fullscreen).at(3));
