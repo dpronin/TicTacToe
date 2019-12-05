@@ -78,14 +78,14 @@ class _TicTacToeState extends State<TicTacToePage> {
     }
   }
 
-  void _markTile(int position) {
+  Future<void> _markTile(int position) async {
     if (tiles[position] != 0) return;
     setState(() {
       step++;
       tiles[position] = currentPlayer;
     });
-    checkWinner();
-    checkNoMoves();
+    await checkWinner();
+    await checkNoMoves();
     currentPlayer *= -1;
   }
 
