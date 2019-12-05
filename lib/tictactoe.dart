@@ -99,9 +99,20 @@ class _TicTacToeState extends State<TicTacToePage> {
     return Icons.panorama_fish_eye;
   }
 
+  SizedBox _buildTile(IconData icon, double size, Function f) {
+    return SizedBox(
+      height: size,
+      width: size,
+      child: IconButton(
+          padding: EdgeInsets.all(0.0),
+          icon: Icon(icon, size: size),
+          onPressed: () => f()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    MediaQueryData _mediaQueryData = MediaQuery.of(context);
+    var _mediaQueryData = MediaQuery.of(context);
     var _size =
         min(_mediaQueryData.size.width, _mediaQueryData.size.height) / 3;
     return Scaffold(
@@ -119,40 +130,29 @@ class _TicTacToeState extends State<TicTacToePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  buildTile(_icon(tiles[0]), _size, () => _markTile(0)),
-                  buildTile(_icon(tiles[1]), _size, () => _markTile(1)),
-                  buildTile(_icon(tiles[2]), _size, () => _markTile(2)),
+                  _buildTile(_icon(tiles[0]), _size, () => _markTile(0)),
+                  _buildTile(_icon(tiles[1]), _size, () => _markTile(1)),
+                  _buildTile(_icon(tiles[2]), _size, () => _markTile(2)),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  buildTile(_icon(tiles[3]), _size, () => _markTile(3)),
-                  buildTile(_icon(tiles[4]), _size, () => _markTile(4)),
-                  buildTile(_icon(tiles[5]), _size, () => _markTile(5)),
+                  _buildTile(_icon(tiles[3]), _size, () => _markTile(3)),
+                  _buildTile(_icon(tiles[4]), _size, () => _markTile(4)),
+                  _buildTile(_icon(tiles[5]), _size, () => _markTile(5)),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  buildTile(_icon(tiles[6]), _size, () => _markTile(6)),
-                  buildTile(_icon(tiles[7]), _size, () => _markTile(7)),
-                  buildTile(_icon(tiles[8]), _size, () => _markTile(8)),
+                  _buildTile(_icon(tiles[6]), _size, () => _markTile(6)),
+                  _buildTile(_icon(tiles[7]), _size, () => _markTile(7)),
+                  _buildTile(_icon(tiles[8]), _size, () => _markTile(8)),
                 ],
               ),
             ],
           ),
         ));
   }
-}
-
-SizedBox buildTile(IconData icon, double size, Function f) {
-  return SizedBox(
-    height: size,
-    width: size,
-    child: IconButton(
-        padding: EdgeInsets.all(0.0),
-        icon: Icon(icon, size: size),
-        onPressed: () => f()),
-  );
 }
