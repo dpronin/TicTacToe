@@ -7,4 +7,4 @@ Flutter TicTacToe project.
 
 ## Getting Started
 
-![Emulator screenshot](https://gfycat.com/minorfeistygallinule)
+![Emulator screenshot](https://gfycat.com/minorfeistygallinule.gif)
