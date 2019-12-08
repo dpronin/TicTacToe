@@ -8,11 +8,11 @@ class Character {
   Image firstWin;
   Image secondWin;
 
-  Character(String charactersTogether, String firstCharacter, String secondCharacter, String firstWin, String secondWin) {
-    this.charactersTogether = Image.asset('assets/images/$charactersTogether', width: 50, height: 50,);
-    this.firstCharacter = Image.asset('assets/images/$firstCharacter', width: 50, height: 50,);
-    this.secondCharacter = Image.asset('assets/images/$secondCharacter', width: 50, height: 50,);
-    this.firstWin = Image.asset('assets/images/$firstWin', width: 50, height: 50,);
-    this.secondWin = Image.asset('assets/images/$secondWin', width: 50, height: 50,);
+  Character(String characters) {
+    this.charactersTogether = Image.asset('assets/images/${characters}_b.png', width: 50, height: 50,);
+    this.firstCharacter = Image.asset('assets/images/${characters}_1.png', width: 200, height: 200,);
+    this.secondCharacter = Image.asset('assets/images/${characters}_2.png', width: 200, height: 200,);
+    this.firstWin = Image.asset('assets/images/${characters}_1_w.png', width: 200, height: 200,);
+    this.secondWin = Image.asset('assets/images/${characters}_2_w.png', width: 200, height: 200,);
   }
 }

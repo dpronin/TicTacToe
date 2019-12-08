@@ -12,7 +12,7 @@ class TicTacToePage extends StatefulWidget {
 }
 
 final blank = Image.asset('assets/images/blank.png');
-final charactersToPlay = buildCharacters();
+final List<Character> charactersToPlay = buildCharacters();
 
 class _TicTacToeState extends State<TicTacToePage> {
   var tiles = List<int>.filled(9, 0, growable: false);
@@ -72,7 +72,7 @@ class _TicTacToeState extends State<TicTacToePage> {
     }
     if (winner != 0) {
       await _showWinner(
-          winner == 1
+          winner == -1
               ? currentCharacters.firstWin
               : currentCharacters.secondWin,
           "Wins");
@@ -204,7 +204,7 @@ class _TicTacToeState extends State<TicTacToePage> {
         _reload();
       },
       child: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsets.only(bottom: 16.0, left: 4.0, right: 4.0),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(50.0),
           child: charactersToPlay[i].charactersTogether,
@@ -217,7 +217,7 @@ class _TicTacToeState extends State<TicTacToePage> {
   Widget build(BuildContext context) {
     var _mediaQueryData = MediaQuery.of(context);
     var _size =
-        min(_mediaQueryData.size.width, _mediaQueryData.size.height) / 3 - 10;
+        min(_mediaQueryData.size.width, _mediaQueryData.size.height) / 3 - 40;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -231,10 +231,9 @@ class _TicTacToeState extends State<TicTacToePage> {
           children: <Widget>[
             SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child: Row(children: <Widget>[
-                  _buildCharacterToPlay(0),
-                  _buildCharacterToPlay(1),
-                ])),
+                child: Row(
+                    children: List<Widget>.generate(charactersToPlay.length,
+                        (int index) => _buildCharacterToPlay(index)))),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
