@@ -72,7 +72,7 @@ class _TicTacToeState extends State<TicTacToePage> {
     }
     if (winner != 0) {
       await _showWinner(
-          winner == -1
+          winner == 1
               ? currentCharacters.firstWin
               : currentCharacters.secondWin,
           "Wins");
