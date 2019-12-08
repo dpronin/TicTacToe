@@ -7,4 +7,4 @@ Flutter TicTacToe project.
 
 ## Getting Started
 
-[![gfycat](https://gfycat.com/minorfeistygallinule.gif)](https://gfycat.com/minorfeistygallinule)
+[![gfycat](https://gfycat.com/sourperfumedferret.gif)](https://gfycat.com/sourperfumedferret)
