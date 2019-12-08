@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ttt/character.dart';
+import 'package:flutter/material.dart';
 
 import 'characters.dart';
 
@@ -18,7 +19,7 @@ class _TicTacToeState extends State<TicTacToePage> {
   var tiles = List<int>.filled(9, 0, growable: false);
   var currentPlayer = 1;
 
-  var currentCharacters = charactersToPlay[0];
+  var currentCharacters = 0;
   var step = 0;
 
   void _reload() {
@@ -73,8 +74,8 @@ class _TicTacToeState extends State<TicTacToePage> {
     if (winner != 0) {
       await _showWinner(
           winner == 1
-              ? currentCharacters.firstWin
-              : currentCharacters.secondWin,
+              ? charactersToPlay[currentCharacters].firstWin
+              : charactersToPlay[currentCharacters].secondWin,
           "Wins");
       _reload();
     }
@@ -101,9 +102,9 @@ class _TicTacToeState extends State<TicTacToePage> {
   // shape x = 1. 0 = -1;
   Image _icon(int position) {
     if (tiles[position] == 1) {
-      return currentCharacters.firstCharacter;
+      return charactersToPlay[currentCharacters].firstCharacter;
     } else if (tiles[position] == -1) {
-      return currentCharacters.secondCharacter;
+      return charactersToPlay[currentCharacters].secondCharacter;
     }
     return blank;
   }
@@ -199,18 +200,32 @@ class _TicTacToeState extends State<TicTacToePage> {
 
   Widget _buildCharacterToPlay(int i) {
     return InkWell(
-      onTap: () {
-        currentCharacters = charactersToPlay[i];
-        _reload();
-      },
-      child: Padding(
-        padding: EdgeInsets.only(bottom: 16.0, left: 4.0, right: 4.0),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(50.0),
-          child: charactersToPlay[i].charactersTogether,
-        ),
-      ),
-    );
+        onTap: () {
+          currentCharacters = i;
+          _reload();
+        },
+        child: Padding(
+            padding: EdgeInsets.only(bottom: 16.0, left: 8.0, right: 8.0),
+            child: i == currentCharacters
+                ? Material(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50.0),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50.0),
+                      child: charactersToPlay[i].charactersTogether,
+                    ),
+                  )
+                : Material(
+                    elevation: 10,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50.0),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50.0),
+                      child: charactersToPlay[i].charactersTogether,
+                    ),
+                  )));
   }
 
   @override
